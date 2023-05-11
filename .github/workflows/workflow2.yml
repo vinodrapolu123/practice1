@@ -6,6 +6,10 @@ jobs:
         steps:
             - name: Get Latest Code
               uses: actions/checkout@v3
+            - name: Install Dependencies
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
             - name: List Test
               run: |
                     npm ci
@@ -16,6 +20,10 @@ jobs:
         steps:
             - name: Get Latest Code
               uses: actions/checkout@v3
+            - name: Install Dependencies
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
             - name: List Test
               run: |
                     npm ci
@@ -26,6 +34,10 @@ jobs:
         steps:
             - name: Get Latest Code
               uses: actions/checkout@v3
+            - name: Install Dependencies
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
             - name: List Test
               run: |
                     npm ci

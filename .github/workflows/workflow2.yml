@@ -1,0 +1,33 @@
+name: Lint, test and build one after other
+on: push
+jobs:
+    lint-test-workflow2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Latest Code
+              uses: actions/checkout@v3
+            - name: List Test
+              run: |
+                    npm ci
+                    npm run lint
+    npm-test-workflow2:
+        needs: lint-test-workflow2
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Latest Code
+              uses: actions/checkout@v3
+            - name: List Test
+              run: |
+                    npm ci
+                    npm run test
+    build-test-workflow2:
+        needs: [lint-test-workflow2, npm-test-workflow2]
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Latest Code
+              uses: actions/checkout@v3
+            - name: List Test
+              run: |
+                    npm ci
+                    npm run build
+                    echo "In Build"

@@ -14,4 +14,18 @@ jobs:
               run: |
                     npm ci
                     echo "Test NPM Lint"
+                    npm run lint
+    testing:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get Code
+              uses: actions/checkout@v3
+            - name: Install node js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18
+            - name: Install Dependencies
+              run: |
+                    npm ci
+                    echo "Testing Test"
                     npm run test
